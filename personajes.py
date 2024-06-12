@@ -2,9 +2,13 @@ class Personaje:
     def __init__(self, nombre, nivel):
         self.nombre = nombre
         self.nivel = nivel
+        self.puntos = 0
 
     def mostrar_habilidades(self):
         raise NotImplementedError("Este método debe ser implementado por la subclase")
+    
+    def incrementar_puntos(self, puntos_ganados):
+        self.puntos += puntos_ganados
 
 class Bardo(Personaje):
     def __init__(self, nombre, nivel, poder_lamento, astucia):

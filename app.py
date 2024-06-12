@@ -52,16 +52,24 @@ def simular_combate(personajes):
         print(f"{personajes[indice1].nombre} VS {personajes[indice2].nombre}")
         
         ganador = random.choice([personajes[indice1], personajes[indice2]])
+        ganador.incrementar_puntos(10)  # Incrementamos los puntos del ganador
         print(f"El ganador es {ganador.nombre}!")
     else:
         print("Índices de personajes no válidos.")
+
+def mostrar_ranking(personajes):
+    print("Ranking de personajes:")
+    personajes_ordenados = sorted(personajes, key=lambda p: p.puntos, reverse=True)
+    for i, personaje in enumerate(personajes_ordenados):
+        print(f"{i+1}. {personaje.nombre} - Puntos: {personaje.puntos}")
 
 def menu():
     print("---- Menú ----")
     print("1. Crear Personaje")
     print("2. Mostrar Personajes")
     print("3. Simular Combate")
-    print("4. Salir")
+    print("4. Mostrar Ranking")
+    print("5. Salir")
 
 def main():
     personajes = obtener_personajes()
@@ -79,6 +87,8 @@ def main():
         elif opcion == "3":
             simular_combate(personajes)
         elif opcion == "4":
+            mostrar_ranking(personajes)
+        elif opcion == "5":
             print("¡Hasta luego!")
             break
         else:
