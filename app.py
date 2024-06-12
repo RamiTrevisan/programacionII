@@ -1,3 +1,4 @@
+import random
 from personajes import Bardo, Cazador, Clerigo, Guerrero, Mago, Paladin
 from datos import obtener_personajes
 
@@ -38,7 +39,7 @@ def crear_personaje():
 def mostrar_personajes(personajes):
     print("Lista de personajes:")
     for i, personaje in enumerate(personajes):
-        print(f"{i+1}. {personaje.nombre} (Nivel {personaje.nivel})")
+        print(f"{i+1}. {personaje.nombre} (Nivel {personaje.nivel}) - Habilidades: {personaje.mostrar_habilidades()}")
 
 def simular_combate(personajes):
     print("Simulación de combate:")
@@ -49,7 +50,9 @@ def simular_combate(personajes):
     if 0 <= indice1 < len(personajes) and 0 <= indice2 < len(personajes):
         print("¡Combate!")
         print(f"{personajes[indice1].nombre} VS {personajes[indice2].nombre}")
-        # Aquí puedes simular la lógica de combate
+        
+        ganador = random.choice([personajes[indice1], personajes[indice2]])
+        print(f"El ganador es {ganador.nombre}!")
     else:
         print("Índices de personajes no válidos.")
 
