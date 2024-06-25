@@ -44,8 +44,8 @@ def mostrar_personajes(personajes):
 def simular_combate(personajes):
     print("Simulación de combate:")
     mostrar_personajes(personajes)
-    indice1 = int(input("Seleccione el primer personaje (1-6): ")) - 1
-    indice2 = int(input("Seleccione el segundo personaje (1-6): ")) - 1
+    indice1 = int(input("Seleccione el primer personaje : ")) - 1
+    indice2 = int(input("Seleccione el segundo personaje : ")) - 1
 
     if 0 <= indice1 < len(personajes) and 0 <= indice2 < len(personajes):
         print("¡Combate!")
